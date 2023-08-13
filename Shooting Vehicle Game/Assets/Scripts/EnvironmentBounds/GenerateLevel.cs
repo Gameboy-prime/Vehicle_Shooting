@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class GenerateLevel : MonoBehaviour
 {
-    public GameObject[] sectionsForest;
-    public GameObject[] sectionsIce;
-    public GameObject[] sectionsDesert;
     public GameObject[] sectionsCity;
+    
     
 
     public float zPos=50f;
@@ -47,34 +45,7 @@ public class GenerateLevel : MonoBehaviour
 
     }
 
-    private void  LevelGenIce()
-    {
-        
-        secNum = Random.Range(0,rand);
-        GameObject obj = Instantiate(sectionsIce[secNum], pointSpawn.position, Quaternion.identity);
-        pointSpawn.position = new Vector3(obj.transform.position.x, 0, obj.transform.position.z + zPos);
-        
-        
-
-
-        
-        
-    }
-    private void LevelGenForest()
-    {
-        secNum = Random.Range(0, rand);
-        GameObject obj = Instantiate(sectionsForest[secNum], pointSpawn.position, Quaternion.identity);
-        pointSpawn.position = new Vector3(obj.transform.position.x, 0, obj.transform.position.z + zPos);
-
-    }
-
-    private void LevelGenDesert()
-    {
-        secNum = Random.Range(0, rand);
-        GameObject obj = Instantiate(sectionsDesert[secNum], pointSpawn.position, Quaternion.identity);
-        pointSpawn.position = new Vector3(obj.transform.position.x, 0, obj.transform.position.z + zPos);
-
-    }
+   
 
     private void LevelGenCity()
     {
@@ -87,23 +58,7 @@ public class GenerateLevel : MonoBehaviour
     private void LevelGen()
     {
         //This is used to generate a paricular Scene
-        if (DetermineScene.changer == 0)
-        {
-            LevelGenForest();
-        }
-        else if (DetermineScene.changer == 1)
-        {
-            LevelGenIce();
-        }
-        else if(DetermineScene.changer==2)
-        {
-            LevelGenDesert();
-        }
-        else if (DetermineScene.changer == 3)
-        {
-            LevelGenCity();
-        }
-        
+        LevelGenCity();
         
     }
 
